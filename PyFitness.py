@@ -1,5 +1,4 @@
 import json
-import os
 from random import randrange,choice
 
 class ExerciseGenerator:
