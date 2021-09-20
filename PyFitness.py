@@ -12,27 +12,10 @@ class ExerciseGenerator:
             self.exercises = json.load(exercise_data)
 
     def get_random_exercise(self,level):
-        if level ==1:
-            random_exercise = choice(self.exercises)
-            min = int(random_exercise["minimum"])
-            max = int(random_exercise["maximum"])
-            max = int(round(max*.25,0))
-            amount = randrange(min,max)
-        elif level == 2:
-            random_exercise = choice(self.exercises)
-            min = int(random_exercise["minimum"])
-            max = int(random_exercise["maximum"])
-            max = int(round(max*.50,0))
-            min = round(max / 2,0)
-            amount = randrange(min,max)
-        elif level == 3:
-            random_exercise = choice(self.exercises)
-            min = int(random_exercise["minimum"])
-            max = int(random_exercise["maximum"])
-            max = int(max)
-            min = round(max / 2,0)
-            amount = randrange(min,max)
-
+        random_exercise = choice(self.exercises)
+        min = int(random_exercise["minimum"])
+        max = int(random_exercise["maximum"])
+        amount = self.get_amount(min,max,level)
         return random_exercise["name"], amount
 
     def start_workout(self,timer,number_of_exercises, intensity):
@@ -45,7 +28,21 @@ class ExerciseGenerator:
                 count += 1
             print(f"Next workout at {ctime(start_time + timer)}")
             sleep(timer)
-        pass
+    
+    def get_amount(self, min, max, level):
+        if level ==1:
+            max = int(round(max*.25,0))
+            amount = randrange(min,max)
+        elif level == 2:
+            max = int(round(max*.50,0))
+            min = round(max / 2,0)
+            amount = randrange(min,max)
+        elif level == 3:
+            max = int(max)
+            min = round(max / 2,0)
+            amount = randrange(min,max)
+        return amount
+
 
 if __name__ == "__main__":
     eg = ExerciseGenerator()
