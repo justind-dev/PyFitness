@@ -1,5 +1,6 @@
 import json
 from random import randrange,choice
+from time import time, ctime, sleep
 
 class ExerciseGenerator:
     def __init__(self) -> None: 
@@ -34,9 +35,25 @@ class ExerciseGenerator:
 
         return random_exercise["name"], amount
 
+    def start_workout(self,timer,number_of_exercises, intensity):
+        while True:
+            start_time = time()
+            count = 1
+            while count <= number_of_exercises:
+                current_exercise = eg.get_random_exercise(intensity)
+                print(f"You need to do {current_exercise[1]} {current_exercise[0]} now.")
+                count += 1
+            print(f"Next workout at {ctime(start_time + timer)}")
+            sleep(timer)
+        pass
+
 if __name__ == "__main__":
     eg = ExerciseGenerator()
-    current_exercise = eg.get_random_exercise(2)
-    print(f"You need to do {current_exercise[1]} {current_exercise[0]} now.")
+    workout_interval = int(input("How often do you want a workout (minutes)? "))*60
+    number_of_exercises = int(input("How many exercises do you want at each interval?"))
+    intensity = int(input("What intensity do you want to train at?\n1 = beginner\n2=Intermediate\n3=Expert\nYour choice:"))
+    eg.start_workout(workout_interval, number_of_exercises, intensity)
+
+
 
 
