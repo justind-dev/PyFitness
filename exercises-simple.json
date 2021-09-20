@@ -1,100 +1,98 @@
-{
-	"exercises": [
-		{
-		"name": "Pushups",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Situps",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Dumbell Curls",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Dumbell Shoulder Raises",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "30"
-		},
-		{
-		"name": "Dumbell Rows",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Dumbell Squats",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Dumbell Tricep Extensions",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Dumbell Flys",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Decline Pushups",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Incline Pushups",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "100"
-		},
-		{
-		"name": "Jumping Jacks",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "100"
-		},
-		{
-		"name": "Squats",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "100"
-		},
-		{
-		"name": "Toe Touches, each leg.",
-		"metric": "Seconds",
-		"minimum": "10",
-		"maximum": "120"
-		},
-		{
-		"name": "Lunges",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Punches",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		},
-		{
-		"name": "Kicks",
-		"metric": "reps",
-		"minimum": "5",
-		"maximum": "50"
-		}
-		]
-}
+[
+	{
+	"name": "Pushups",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Situps",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Dumbell Curls",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Dumbell Shoulder Raises",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "30"
+	},
+	{
+	"name": "Dumbell Rows",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Dumbell Squats",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Dumbell Tricep Extensions",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Dumbell Flys",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Decline Pushups",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Incline Pushups",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "100"
+	},
+	{
+	"name": "Jumping Jacks",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "100"
+	},
+	{
+	"name": "Squats",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "100"
+	},
+	{
+	"name": "Toe Touches, each leg.",
+	"metric": "Seconds",
+	"minimum": "10",
+	"maximum": "120"
+	},
+	{
+	"name": "Lunges",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Punches",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	},
+	{
+	"name": "Kicks",
+	"metric": "reps",
+	"minimum": "5",
+	"maximum": "50"
+	}
+]

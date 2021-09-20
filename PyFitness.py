@@ -17,5 +17,6 @@ class ExerciseGenerator:
 
 if __name__ == "__main__":
     eg = ExerciseGenerator()
-
+    for x in eg.exercises:
+        print(x)
 
