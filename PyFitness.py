@@ -9,8 +9,9 @@ def load_json(filename):
 
 
 class ExerciseImporter:
-    def __init__(self, filename):
-        self.exercises = load_json(filename)
+    def __init__(self):
+        self.FILENAME = "exercises.json"
+        self.exercises = load_json(self.FILENAME")
 
     def get_exercises(self):
         return self.exercises
@@ -42,7 +43,7 @@ class Exercise:
 
 if __name__ == "__main__":
     while True:
-        exercises = ExerciseImporter("exercises.json")
+        exercises = ExerciseImporter()
         exercise = Exercise(**random.choice(exercises.get_exercises()))
 
         intensity = ""
