@@ -1,56 +1,63 @@
 import json
-from random import randrange,choice
-from time import time, ctime, sleep
+import random
+from statistics import mean
 
-class ExerciseGenerator:
-    def __init__(self) -> None: 
-        self.exercises = None
-        self.get_exercise_data()
 
-    def get_exercise_data(self):
-        with open('exercises-simple.json') as exercise_data:
-            self.exercises = json.load(exercise_data)
+def load_json(filename):
+    with open(filename) as data:
+        return json.load(data)
 
-    def get_random_exercise(self,level):
-        random_exercise = choice(self.exercises)
-        min = int(random_exercise["minimum"])
-        max = int(random_exercise["maximum"])
-        amount = self.get_amount(min,max,level)
-        return random_exercise["name"], amount
 
-    def start_workout(self,timer,number_of_exercises, intensity):
-        while True:
-            start_time = time()
-            count = 1
-            while count <= number_of_exercises:
-                current_exercise = eg.get_random_exercise(intensity)
-                print(f"You need to do {current_exercise[1]} {current_exercise[0]} now.")
-                count += 1
-            print(f"Next workout at {ctime(start_time + timer)}")
-            sleep(timer)
-    
-    def get_amount(self, min, max, level):
-        if level ==1:
-            max = int(round(max*.25,0))
-            amount = randrange(min,max)
-        elif level == 2:
-            max = int(round(max*.50,0))
-            min = round(max / 2,0)
-            amount = randrange(min,max)
-        elif level == 3:
-            max = int(max)
-            min = round(max / 2,0)
-            amount = randrange(min,max)
-        return amount
+class ExerciseImporter:
+    def __init__(self, filename):
+        self.exercises = load_json(filename)
+
+    def get_exercises(self):
+        return self.exercises
+
+
+class Exercise:
+    def __init__(self, **kwargs):
+        self.name = kwargs["name"]
+        self.metric = kwargs["metric"]
+        self.minimum = int(kwargs["minimum"])
+        self.maximum = int(kwargs["maximum"])
+        self.mean = round(mean([self.minimum, self.maximum]))
+
+    def get_metric(self):
+        return self.metric
+
+    def get_easy_count(self):
+        count = self.minimum + random.randint(0, self.minimum)
+        return count
+
+    def get_medium_count(self):
+        count = self.mean + random.randint(0, self.mean)
+        return count
+
+    def get_intense_count(self):
+        count = self.maximum + random.randint(0, self.maximum)
+        return count
 
 
 if __name__ == "__main__":
-    eg = ExerciseGenerator()
-    workout_interval = int(input("How often do you want a workout (minutes)? "))*60
-    number_of_exercises = int(input("How many exercises do you want at each interval?"))
-    intensity = int(input("What intensity do you want to train at?\n1 = beginner\n2=Intermediate\n3=Expert\nYour choice:"))
-    eg.start_workout(workout_interval, number_of_exercises, intensity)
+    while True:
+        exercises = ExerciseImporter("exercises.json")
+        exercise = Exercise(**random.choice(exercises.get_exercises()))
 
+        intensity = ""
+        while intensity == "":
+            intensity = input("How intense would you like your workout? (1,2,3) ")
 
+        if intensity == "1":
+            count = exercise.get_easy_count()
+        elif intensity == "2":
+            count = exercise.get_medium_count()
+        elif intensity == "3":
+            count = exercise.get_intense_count()
+        else:
+            print("INVALID ENTRY")
+            count = 0
 
-
+        if count > 0:
+            print(f"Complete {count} {exercise.metric} of {exercise.name}")
