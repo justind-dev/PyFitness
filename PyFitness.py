@@ -23,21 +23,21 @@ class ExerciseGenerator:
             min = int(random_exercise["minimum"])
             max = int(random_exercise["maximum"])
             max = int(round(max*.50,0))
-            min = max / 2
+            min = round(max / 2,0)
             amount = randrange(min,max)
         elif level == 3:
             random_exercise = choice(self.exercises)
             min = int(random_exercise["minimum"])
             max = int(random_exercise["maximum"])
             max = int(max)
-            min = max / 2
+            min = round(max / 2,0)
             amount = randrange(min,max)
 
         return random_exercise["name"], amount
 
 if __name__ == "__main__":
     eg = ExerciseGenerator()
-    current_exercise = eg.get_random_exercise(3)
+    current_exercise = eg.get_random_exercise(2)
     print(f"You need to do {current_exercise[1]} {current_exercise[0]} now.")
 
 
