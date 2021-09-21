@@ -11,7 +11,7 @@ def load_json(filename):
 class ExerciseImporter:
     def __init__(self):
         self.FILENAME = "exercises.json"
-        self.exercises = load_json(self.FILENAME")
+        self.exercises = load_json(self.FILENAME)
 
     def get_exercises(self):
         return self.exercises
